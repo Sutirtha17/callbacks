@@ -7,7 +7,13 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test1": "cd test/ && node testCallback1.js",
+    "test2": "cd test/ && node testCallback2.js",
+    "test3": "cd test/ && node testCallback3.js",
+    "test4": "cd test/ && node testCallback4.js",
+    "test5": "cd test/ && node testCallback5.js",
+    "test6": "cd test/ && node testCallback6.js"
   },
   "author": "",
   "license": "ISC"
