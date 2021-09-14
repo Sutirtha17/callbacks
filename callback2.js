@@ -4,13 +4,14 @@
 
 function listOfBoardInformation(boardID, listOfBoard, cb) {
   setTimeout(() => {
-    let listData;
-    try {
-      listData = listOfBoard[boardID];
-    } catch {
-      cb(new Error('Invalid json format, please give correct dataset'), null);
+    let listData = listOfBoard[boardID];
+
+    if (listData) {
+      cb(null, listData);
+    } else {
+      let error = new Error('Invalid ID or Json files!');
+      cb(error);
     }
-    cb(null, listData);
   }, 2000);
 }
 
