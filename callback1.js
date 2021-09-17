@@ -21,7 +21,7 @@ const getInformationOfBoards = (boardId, boards, cb) => {
       let error = new Error('Invalid ID or Json file!');
       cb(error);
     }
-  }, 2000);
+  }, 2 * 1000);
 };
 
 module.exports = getInformationOfBoards;

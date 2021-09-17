@@ -45,7 +45,7 @@ function getThanosAll(boards, lists, cards, boardName) {
     } catch {
       throw new Error('Invalid json format, please give correct datasets');
     }
-  }, 2000);
+  }, 2 * 1000);
 }
 
 module.exports = getThanosAll;

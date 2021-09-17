@@ -12,7 +12,7 @@ function listOfBoardInformation(boardID, listOfBoard, cb) {
       let error = new Error('Invalid ID or Json files!');
       cb(error);
     }
-  }, 2000);
+  }, 2 * 1000);
 }
 
 module.exports = listOfBoardInformation;
