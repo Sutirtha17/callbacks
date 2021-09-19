@@ -1,8 +1,7 @@
 const lists = require('../lists.json');
 const listOfBoardInformation = require('../callback2.js');
 
-const promise = listOfBoardInformation('mcu453ed', lists);
-promise
+listOfBoardInformation('mcu453ed', lists)
   .then((listData) => {
     console.log(listData);
   })

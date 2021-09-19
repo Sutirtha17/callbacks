@@ -10,10 +10,9 @@ function listOfBoardInformation(boardID, listOfBoard) {
       if (listData) {
         resolve(listData);
       } else {
-        let error = new Error('Invalid ID or Json files!');
-        reject(error);
+        reject('ID not found!');
       }
-    }, 2000);
+    }, 2 * 1000);
   });
 }
 

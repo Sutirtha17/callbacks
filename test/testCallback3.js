@@ -1,7 +1,7 @@
 const cards = require('../cards.json');
 const listOfBoardInformation = require('../callback3.js');
 
-listOfBoardInformation('qwsa221', cards)
+listOfBoardInformation('azxs123', cards)
   .then((cardData) => {
     console.log(cardData);
   })

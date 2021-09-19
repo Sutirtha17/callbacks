@@ -14,15 +14,14 @@
 const getInformationOfBoards = (boardId, boards) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      let boardData = boards.filter((board) => board.id == boardId);
+      let boardData = boards.find((board) => board.id == boardId);
 
       if (boardData) {
         resolve(boardData);
       } else {
-        let error = new Error('Invalid ID or Json file!');
-        reject(error);
+        reject('ID not found!');
       }
-    }, 2000);
+    }, 2 * 1000);
   });
 };
 

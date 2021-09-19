@@ -17,36 +17,44 @@ function getThanosAndMindAndSpace(
   ...listName
 ) {
   setTimeout(() => {
+    let promiseArray = [];
+
     boards.filter((eachBoard) => {
       if (eachBoard.name == boardName) {
-        getInformationOfBoards(eachBoard.id, boards)
-          .then((data) => {
-            data.filter((listID) => {
-              listOfBoardInformation(listID.id, lists)
-                .then((data) => {
-                  data.filter((cardID) => {
-                    if (listName.includes(cardID.name)) {
-                      listOfCardInformation(cardID.id, cards)
-                        .then((data) => {
-                          console.log(data);
-                        })
-                        .catch((error) => {
-                          console.log(error);
-                        });
-                    }
-                  });
-                })
-                .catch((error) => {
-                  console.log(error);
-                });
-            });
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        promiseArray.push(getInformationOfBoards(eachBoard.id, boards));
       }
     });
-  }, 2000);
+
+    Promise.all(promiseArray)
+      .then((data) => {
+        promiseArray = [];
+
+        data.filter((listID) => {
+          promiseArray.push(listOfBoardInformation(listID.id, lists));
+        });
+      })
+      .then(() => {
+        return Promise.all(promiseArray).then((data) => {
+          data = data.flat();
+          promiseArray = [];
+
+          data.filter((cardID) => {
+            if (listName.includes(cardID.name)) {
+              promiseArray.push(listOfCardInformation(cardID.id, cards));
+            }
+          });
+        });
+      })
+      .then(() => {
+        Promise.all(promiseArray).then((data) => {
+          data = data.flat();
+          console.log(data);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, 2 * 1000);
 }
 
 module.exports = getThanosAndMindAndSpace;

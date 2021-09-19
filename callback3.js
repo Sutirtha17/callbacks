@@ -10,10 +10,9 @@ function listOfCardInformation(boardID, listOfCard) {
       if (cardData) {
         resolve(cardData);
       } else {
-        let error = new Error('Invalid ID or Json files!');
-        reject(error);
+        reject('ID not found!');
       }
-    }, 2000);
+    }, 2 * 1000);
   });
 }
 

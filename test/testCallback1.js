@@ -1,8 +1,7 @@
 const boards = require('../boards.json');
 const getInformationOfBoards = require('../callback1.js');
 
-const promise = getInformationOfBoards('mcu453ed', boards);
-promise
+getInformationOfBoards('mcu453ed', boards)
   .then((boardData) => {
     console.log(boardData);
   })
