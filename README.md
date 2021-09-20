@@ -1,6 +1,6 @@
 # Drills_Callbacks
 
-This project is for getting solutions of particular problems using **`callbacks`** and **`setTimeout`** methods.
+This project is for getting solutions of particular problems using **`promises`** and **`setTimeout`** methods.
 
 ## Installations
 
@@ -21,7 +21,7 @@ This project is for getting solutions of particular problems using **`callbacks`
 ### 4. Clone the repository :
 
 ```
-git clone https://github.com/Sutirtha17/callbacks.git
+git clone -b promises https://github.com/Sutirtha17/callbacks.git
 ```
 
 ### 5. Go to the working directory
